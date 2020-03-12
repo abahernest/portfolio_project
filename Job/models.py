@@ -8,3 +8,10 @@ class Job(models.Model):
     start_date=models.DateField()
     end_date= models.DateField()
     summary=models.TextField()
+
+    def __str__ (self):
+        return self.job_title
+
+
+    def compressed (self):
+        return self.summary[:100] + " ..."
