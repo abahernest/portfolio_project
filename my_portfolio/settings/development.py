@@ -1,4 +1,4 @@
-from conduit.settings.common import *
+from my_portfolio.settings.common import *
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
