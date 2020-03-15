@@ -81,6 +81,7 @@ pandas==1.0.1
 pandocfilters==1.4.2
 paramiko==2.6.0
 parso==0.6.2
+pbr==5.4.4
 pexpect==4.6.0
 pickleshare==0.7.5
 Pillow==6.1.0
@@ -135,6 +136,7 @@ tensorflow-metadata==0.21.1
 termcolor==1.1.0
 terminado==0.8.3
 testpath==0.4.4
+testresources==2.0.1
 tornado==6.0.4
 tqdm==4.43.0
 traitlets==4.3.3
