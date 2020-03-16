@@ -140,7 +140,7 @@ testresources==2.0.1
 tornado==6.0.4
 tqdm==4.43.0
 traitlets==4.3.3
-ubuntu-advantage-tools==19.5
+
 ubuntu-drivers-common==0.0.0
 ufw==0.36
 unattended-upgrades==0.1
