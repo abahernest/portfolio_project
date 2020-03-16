@@ -130,7 +130,7 @@ tensorboard==1.14.0
 tensorflow==1.14.0
 tensorflow-datasets==2.1.0
 tensorflow-estimator==1.14.0
-tensorflow-examples===8f2f003c8d295b83a5e377e69860a683c3a56275-
+
 tensorflow-hub==0.7.0
 tensorflow-metadata==0.21.1
 termcolor==1.1.0
