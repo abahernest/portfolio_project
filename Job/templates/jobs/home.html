@@ -82,14 +82,14 @@
         {% for job in jobs.all %}
         <div class="col mb-4">
           <div class="card h-100">
-            <img src="{{job.image.url}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <p class="card-text"><b>Job Title:</b> {{job.job_title}}</p>
                 <p class="card-text"><b>Company:</b>{{job.company}}</p>
                 <p class="card-text"><b>Start Date:</b>{{job.start_date}}</p>
                 <p class="card-text"><b>End Date:</b>{{job.end_date}}</p>
                 <p class="card-text"><b>Job Description:</b>{{job.summary}}</p>
-            </div>
+                <a href="{{job.link}}" class="btn btn-primary my-2">View</a>
+              </div>
           </div> 
         </div>
         {%endfor%}
