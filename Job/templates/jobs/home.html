@@ -1,115 +1,400 @@
-<html lang="en"><head>
-    {% load static %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="Ernest Abah">
-        <meta name="generator" content="Jekyll v3.8.6">
-        <title>Ernest Abah Portfolio</title>
-    
-        <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
-    
-        <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
-        <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{% static 'favicon_io/apple-touch-icon.png'%}" sizes="180x180'%}">
-    <link rel="icon" href="{% static 'favicon_io/favicon-32x32.png'%}" sizes="32x32" type="image/png">
-    <link rel="icon" href="{% static 'favicon_io/favicon-16x16.png'%}" sizes="16x16" type="image/png">
-    <link rel="manifest" href="{% static 'favicon_io/manifest.json'%}">
-    <link rel="icon" href="{% static 'favicon_io/favicon.ico'%}">
-    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#563d7c">
-    
-    
-        <style>
-          .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-          }
-    
-          @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-              font-size: 3.5rem;
-            }
-          }
-        </style>
-        <!-- Custom styles for this template -->
-        <link href="album.css" rel="stylesheet">
-      </head>
-      <body>
-        <header>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="{% url 'home' %}">Ernest Abah</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ml-auto">
-              <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-              <a class="nav-item nav-link" href="{% url 'home_blog' %}">Blog</a>
-              <a class="nav-item nav-link" href="{% static 'Ernest_Abah_Resume.pdf' %}" target="_blank">Resume</a>
-              <a class="nav-item nav-link" href="https://linkedin.com/in/abahernest" target="_blank">Linkedin</a>
-              <a class="nav-item nav-link" href="https://github.com/abahernest" target="_blank">Github</a>
-              <a class="nav-item nav-link" href="https://twitter.com/ErnestAbah" target="_blank">Twitter</a>
-    
-              </div>
-          </div>
-        </nav>
-    </header>
-    
-    <main role="main">
-    
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1>Hello, I'm Ernest</h1>
-          <p class="lead text-muted">I'm a budding Software Engineer,Fullstack Web Developer, Data Scientist and ML enthusiast. I believe life can be easier and should be easier. I love to design and build solutions that makes life easy for people. Whatever I lack in talent, I make up for it with dedication and hardwork.</p>
-          <p>
-            <a href="mailto:abahernesto@gmail.com" class="btn btn-primary my-2">Email Me</a>
-          </p>
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Ernest Abah</title>
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{%static 'lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{%static 'lib/ionicons/css/ionicons.min.css'%}" rel="stylesheet">
+  <link href="{%static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+  <link href="{%static 'lib/magnific-popup/magnific-popup.css'%}" rel="stylesheet">
+  <link href="{%static 'lib/hover/hover.min.css'%}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{%static 'css/style.css'%}" rel="stylesheet">
+
+  <!-- Responsive css -->
+  <link href="{%static 'css/responsive.css'%}" rel="stylesheet">
+
+  <!-- Favicon -->
+  <!-- <link rel="shortcut icon" href="{%static 'favicon_io/favicon.ico'%}"> -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{%static 'favicon_io/apple-touch-icon.png'%}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{%static 'favicon_io/favicon-32x32.png'%}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{%static 'favicon_io/favicon-16x16.png'%}">
+  <link rel="manifest" href="{%static 'favicon_io/site.webmanifest'%}">
+</head>
+
+<body>
+
+  <!-- start section navbar -->
+  <nav id="main-nav">
+    <div class="row">
+      <div class="container">
+
+        <div class="logo">
+          <a href="{%url 'home'%}"><img src="{%static 'favicon_io/favicon-32x32.png'%}" alt="logo"></a>
         </div>
-      </section>
 
+        <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
 
-    <div class="album py-5 bg-dark">
-    <div class="container" display:flex>
-      <div class="row row-cols-1 row-cols-md-3">
-        {% for job in jobs.all %}
-        <div class="col mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-                <p class="card-text"><b>Job Title:</b> {{job.job_title}}</p>
-                <p class="card-text"><b>Company:</b>{{job.company}}</p>
-                <p class="card-text"><b>Start Date:</b>{{job.start_date}}</p>
-                <p class="card-text"><b>End Date:</b>{{job.end_date}}</p>
-                <p class="card-text"><b>Job Description:</b>{{job.summary}}</p>
-                <a href="{{job.link}}" class="btn btn-primary my-2">View</a>
-              </div>
-          </div> 
-        </div>
-        {%endfor%}
-    </div>
-    </div> 
-    </div>
-    
+        <ul class="nav-menu list-unstyled">
+          <li><a href="#header" class="smoothScroll">Home</a></li>
+          <li><a href="#about" class="smoothScroll">Skills</a></li>
+          <li><a href="#portfolio" class="smoothScroll">Experience</a></li>
+          <li><a href="#contact" class="smoothScroll">Contact</a></li>
+          <li><a href="{%static 'ErnestAbahResume.pdf'%}" target=" ">Resume</a></li>
+        </ul>
 
-
-
-    
-    </main>
-    
-    <footer class="text-muted">
-      <div class="container text-center">
-        <p>
-          Copyright <b>abahernesto</b> {% now "Y" %}
-        </p>
       </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script></body></html>
-    
+    </div>
+  </nav>
+  <!-- End section navbar -->
+
+
+  <!-- start section header -->
+  <div id="header" class="home">
+
+    <div class="container">
+      <div class="header-content">
+        <h1>I'm <span class="typed"></span></h1>
+        <p>Software Engineer, Coding Instructor, Fitness Model</p>
+
+
+        <ul class="list-unstyled">
+          <li><a href="https://linkedin.com/in/abahernest" target=" "><i class="ion-social-linkedin"></i></a></li>
+          <li><a href="https://github.com/abahernest" target=" "><i class="ion-social-github"></i></a></li>
+          <li><a href="https://twitter.com/ErnestAbah" target=" "><i class="ion-social-twitter"></i></a></li>
+          <li><a href="https://instagram.com/ernest_abah" target=" "><i class="ion-social-instagram"></i></a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <!-- End section header -->
+
+
+  <!-- start section about us -->
+  <div id="about" class="paddsection">
+    <div class="container">
+      <div class="row justify-content-between">
+
+        <div class="col-lg-4 ">
+          <div class="div-img-bg">
+            <div class="about-img">
+              <img src="{%static 'images/me.jpg'%}" class="img-responsive" alt="me">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="about-descr">
+
+            <p class="p-heading">I'm a Software Engineer resident in Lagos, NG</p>
+            <p class="separator">Everyday i work on intelligent web solutions and build highly optimized algorithms that give customers the very best user experience.
+              <br/>I am very interested in new technologies, so whenever i'm not coding, I listen to podcast and read articles on Changelog.com; which is after visiting the gym ofcourse.</p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end section about us -->
+
+
+  <!-- start section services -->
+  <div id="services">
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Skills</h2>
+      </div>
+        <div class="services-carousel owl-theme">
+
+          <div class="services-block">
+
+            <!-- <i class="ion-ios-browsers-outline"></i> -->
+            <span>Cloud Development</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <!-- <i class="ion-ios-lightbulb-outline"></i> -->
+            <span>Software Development</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <!-- <i class="ion-ios-color-wand-outline"></i> -->
+            <span>Database Development</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <!-- <i class="ion-social-android-outline"></i> -->
+            <span>Data Analytics</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <!-- <i class="ion-ios-analytics-outline"></i> -->
+            <span>D.S.A</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <!-- <i class="ion-ios-camera-outline"></i> -->
+            <span>Version Control</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+        </div>
+
+    </div>
+
+  </div>
+  <!-- end section services -->
+
+
+  <!-- start section portfolio -->
+  <div id="portfolio" class="text-center paddsection">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Experience</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="portfolio-list">
+
+            <ul class="nav list-unstyled" id="portfolio-flters">
+              <li class="filter filter-active" data-filter=".all">all</li>
+              <li class="filter" data-filter=".professional">Professional</li>
+              <li class="filter" data-filter=".projects">Projects</li>
+              <li class="filter" data-filter=".volunteering">Volunteering</li>
+              <li class="filter" data-filter=".certificates">Certificates</li>
+              <!-- <li class="filter" data-filter=".photography">photography</li> -->
+            </ul>
+
+          </div>
+
+          <div class="portfolio-container card-group">
+            
+ 
+              {% for item in jobs.all %}
+              <div class="card col-lg-4 col-md-6 portfolio-thumbnail all professional" style="width: 100%;">
+                <img src="{{item.image.url}}" class="card-img-top" alt="img">
+                <div class="card-body" style="text-align: left;">
+                  <h5 class="card-title">Organization: {{item.company}}</h5>
+                  <h5 class="card-title">Position: {{item.job_title}}</h5>
+                  <p class="card-text"><h5>Achievements: </h5><br/>1. {{item.achievement1}}<br/>2. {{item.achievement2}}<br/>3. {{item.achievement3}} </p>
+                  <div class="card-footer">
+                    <small class="text-muted">{{item.start_date}} - {{item.end_date}}</small>
+                  </div>                 
+                </div>
+              </div>
+              {% endfor %}
+
+
+
+            {% for item in projects.all %}
+            <div class="card col-lg-4 col-md-6 portfolio-thumbnail all projects" style="width: 100%;">
+              <img src="{{item.image.url}}" class="card-img-top" alt="img">
+              <div class="card-body" style="text-align: left;">
+                <h5 class="card-title">Project Title: {{item.title}}</h5>
+                <h5 class="card-title">Technologies: {{item.technologies}}</h5>
+                <p class="card-text"><h5>Description: </h5>{{item.description}}</p>
+                <a href="{{item.link}}" class="btn btn-primary">Project Link</a>
+                <div class="card-footer">
+                  <small class="text-muted">{{item.date}}</small>
+                </div> 
+              </div>
+            </div>
+            {%endfor%}
+
+           
+            {% for item in volunteer.all %}
+            <div class="card col-lg-4 col-md-6 portfolio-thumbnail all volunteering" style="width: 100%;">
+              <img src="{{item.image.url}}" class="card-img-top" alt="img">
+              <div class="card-body" style="text-align: left;">
+                <h5 class="card-title">Organization: {{item.organization}}</h5>
+                <h5 class="card-title">Position: {{item.position}}</h5>
+                <p class="card-text"><h5>Achievements: </h5><br/>1. {{item.achievement1}}<br/>2. {{item.achievement2}}</p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                <div class="card-footer">
+                  <small class="text-muted">{{item.start_date}} - {{item.end_date}} </small>
+                </div>
+              </div>
+            </div>
+            {%endfor%}
+
+            <!-- <div class="col-lg-4 col-md-6 portfolio-thumbnail all certificates">
+              <a class="popup-img" href="{%static 'images/portfolio/6.jpg'%}">
+                <img src="{%static 'images/portfolio/6.jpg'%}" alt="img">
+              </a>
+            </div> -->
+            {%for item in certificates.all%}
+            <div class="card col-lg-4 col-md-6 portfolio-thumbnail all certificates" style="width: 100%;">
+              <img src="{{item.image.url}}" class="card-img-top" alt="img">
+              <div class="card-body" style="text-align: left;">
+                <h5 class="card-title">Organization: {{item.organization}}</h5>
+                <h5 class="card-title">Certificate: {{item.name}}</h5>
+                <p class="card-text"><h5>Description: </h5>{{item.description}}</p>
+                <a href="{{item.link}}" class="btn btn-primary">Certificate Link</a>
+                <div class="card-footer">
+                  <small class="text-muted">{{item.date_received}}</small>
+                </div>
+              </div>
+            </div>
+            {%endfor%}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- End section portfolio -->
+
+
+
+  <!-- start sectoion contact -->
+  <div id="contact" class="paddsection">
+    <div class="container">
+      <div class="contact-block1">
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="contact-contact">
+
+              <h2 class="mb-30">LEAVE A MESSAGE</h2>
+
+              <ul class="contact-details">
+                <li><span>Surulere, Lagos, NG</span></li>
+                <li><span>+234 9078780658</span></li>
+                <li><span>abahernesto@gmail.com</span></li>
+              </ul>
+
+            </div>
+          </div>
+
+          <form action="#">
+            {% csrf_token %}
+          <div class="col-lg-6">
+            <form action="" method="post" role="form" class="contactForm">
+              <div class="row">
+                {% csrf_token%}
+                <p style='color:red;'>{{success_message}}</p>
+
+                <div class="col-lg-6">
+                  <div class="form-group contact-block1">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                    <div class="validation"></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <input type="submit" class="btn btn-defeault btn-send" value="Send message">
+                </div>
+
+              </div>
+            </form>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- start sectoion contact -->
+
+
+  <!-- start section footer -->
+  <div id="footer" class="text-center">
+    <div class="container">
+      <div class="socials-media text-center">
+
+        <ul class="list-unstyled">
+          <li><a href="https://linkedin.com/in/abahernest" target=" "><i class="ion-social-linkedin"></i></a></li>
+          <li><a href="https://github.com/abahernest" target=" "><i class="ion-social-github"></i></a></li>
+          <li><a href="https://twitter.com/ErnestAbah" target=" "><i class="ion-social-twitter"></i></a></li>
+          <li><a href="https://instagram.com/ernest_abah" target=" "><i class="ion-social-instagram"></i></a></li>
+          <!-- <li><a href="#"><i class="ion-social-dribbble"></i></a></li> -->
+        </ul>
+
+      </div>
+
+      <p>&copy; Copyrights Folio. All rights reserved.</p>
+
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+
+    </div>
+  </div>
+  <!-- End section footer -->
+
+  <!-- JavaScript Libraries -->
+  <script src="{%static 'lib/jquery/jquery.min.js'%}"></script>
+  <script src="{%static 'lib/jquery/jquery-migrate.min.js'%}"></script>
+  <script src="{%static 'lib/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{%static 'lib/typed/typed.js'%}"></script>
+  <script src="{%static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+  <script src="{%static 'lib/magnific-popup/magnific-popup.min.js'%}"></script>
+  <script src="{%static 'lib/isotope/isotope.pkgd.min.js'%}"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="{%static 'js/contactform.js'%}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{%static 'js/main.js'%}"></script>
+
+</body>
+
+</html>
