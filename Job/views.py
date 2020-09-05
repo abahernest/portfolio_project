@@ -9,6 +9,7 @@ def home (request):
     projects=Project.objects.order_by("-date")
     volunteer=Volunteer.objects.order_by("-end_date")
     certificate=Certificates.objects.order_by("-date_received")
+    resume=Resume.objects.all()
     success_message=''
     if 'email' in request.GET:
         sender_name = request.GET['name']
@@ -20,4 +21,5 @@ def home (request):
         send_mail(mail_subject, message, sender_email, ['abahernesto@gmail.com'])
         success_message="Your message has been sent. Thank you!"
 
-    return render(request, 'jobs/home.html', {'jobs':jobs,'projects':projects,'volunteer':volunteer,'certificates':certificate,'success_message':success_message})
+    return render(request, 'jobs/home.html', {'jobs':jobs,'projects':projects,'volunteer':volunteer,'certificates':certificate,
+    'success_message':success_message,'resume':resume})
