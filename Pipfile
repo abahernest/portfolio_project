@@ -13,6 +13,7 @@ python-decouple = "*"
 django-heroku = "*"
 django-storages = "*"
 django-image-optimizer = "*"
+django-sendgrid-v5 = "*"
 
 [dev-packages]
 

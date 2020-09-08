@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Job.apps.JobConfig',
     'Blog.apps.BlogConfig',
+    'image_optimizer',
 ]
 
 MIDDLEWARE = [

@@ -1,9 +1,10 @@
 from django.db import models
 from datetime import date
+from image_optimizer.fields import OptimizedImageField
 
 # Create your models here.
 class Job(models.Model):
-    image= models.ImageField (upload_to="image/",blank=True)
+    image= OptimizedImageField(optimized_image_output_size=(584,396),optimized_image_resize_method='cover', upload_to="image/",blank=True)
     job_title=models.CharField (max_length=300)
     company=models.CharField(max_length=300)
     start_date=models.DateField()
@@ -17,7 +18,7 @@ class Job(models.Model):
 
 
 class Project(models.Model):
-    image= models.ImageField (upload_to="image/",blank=True)
+    image= OptimizedImageField(optimized_image_output_size=(584,396),optimized_image_resize_method='cover', upload_to="image/",blank=True)
     title=models.CharField (max_length=300)
     technologies=models.CharField (max_length=300)
     description=models.TextField ()
@@ -28,7 +29,7 @@ class Project(models.Model):
         return self.title
 
 class Volunteer (models.Model):
-    image= models.ImageField (upload_to="image/",blank=True)
+    image= OptimizedImageField(optimized_image_output_size=(584,396),optimized_image_resize_method='cover', upload_to="image/",blank=True)
     organization=models.CharField(max_length=300)
     position= models.CharField(max_length=300)
     achievement1=models.TextField()
@@ -40,7 +41,7 @@ class Volunteer (models.Model):
         return self.organization
 
 class Certificates (models.Model):
-    image= models.ImageField (upload_to="image/",blank=True)
+    image= OptimizedImageField(optimized_image_output_size=(584,396),optimized_image_resize_method='cover', upload_to="image/",blank=True)
     organization=models.CharField(max_length=300)
     name=models.CharField(max_length=500)
     description=models.TextField()
