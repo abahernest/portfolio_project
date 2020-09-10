@@ -29,6 +29,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','abahernest-portfolio.herokuapp.com']
 
+# SECURE_SSL_REDIRECT=True
+# SESSION_COOKIE_SECURE=True
+# CSRF_COOKIE_SECURE=True
+
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+SENDGRID_API_KEY = config("SENDGRID_API_KEY")
+
+# Toggle sandbox mode (when running in DEBUG mode)
+SENDGRID_SANDBOX_MODE_IN_DEBUG=True
+
+# echo to stdout or any other file-like object that is passed to the backend via the stream kwarg.
+SENDGRID_ECHO_TO_STDOUT=True
 
 # Application definition
 
@@ -41,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Job.apps.JobConfig',
     'Blog.apps.BlogConfig',
+    'storages',
     'image_optimizer',
 ]
 
@@ -124,23 +137,36 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT= os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-            os.path.join(BASE_DIR, 'portfolio_project/static/')
 
-]
+# aws settings
+AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
+AWS_DEFAULT_ACL=None
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+# AWS_LOCATION = 'static'
+
+# s3 static settings 
+STATIC_LOCATION = 'static'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATIC_LOCATION)
+STATICFILES_STORAGE = 'portfolio_project.storage_backends.StaticStorage'
+
+#S3 PUBLIC MEDIA SETTINGS
+PUBLIC_MEDIA_LOCATION = 'media'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, PUBLIC_MEDIA_LOCATION)
+DEFAULT_FILE_STORAGE = 'portfolio_project.storage_backends.PublicMediaStorage'
 
 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
-MEDIA_URL='/media/'
+# STATIC_URL = '/static/'
+# STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [
+#             os.path.join(BASE_DIR, 'portfolio_project/static/')
+# ]
+# MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+# MEDIA_URL='/media/'
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'abahernesto@gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
-EMAIL_PORT = 1025
 
 django_heroku.settings(locals(), logging=False)
