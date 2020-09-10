@@ -160,11 +160,11 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, PUBLIC_MEDIA_LOCATION)
 DEFAULT_FILE_STORAGE = 'portfolio_project.storage_backends.PublicMediaStorage'
 
 
-# STATIC_URL = '/static/'
-# STATIC_ROOT= os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = [
-#             os.path.join(BASE_DIR, 'portfolio_project/static/')
-# ]
+STATIC_URL = '/static/'
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+            os.path.join(BASE_DIR, 'portfolio_project/static/')
+]
 # MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 # MEDIA_URL='/media/'
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
