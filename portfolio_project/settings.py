@@ -29,18 +29,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','abahernest-portfolio.herokuapp.com']
 
-# SECURE_SSL_REDIRECT=True
-# SESSION_COOKIE_SECURE=True
-# CSRF_COOKIE_SECURE=True
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
 
-EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = config("SENDGRID_API_KEY")
 
-# Toggle sandbox mode (when running in DEBUG mode)
-SENDGRID_SANDBOX_MODE_IN_DEBUG=True
-
-# echo to stdout or any other file-like object that is passed to the backend via the stream kwarg.
-SENDGRID_ECHO_TO_STDOUT=True
 
 # Application definition
 
@@ -165,8 +158,25 @@ STATIC_ROOT= os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
             os.path.join(BASE_DIR, 'portfolio_project/static/')
 ]
+
+#Local  Media Storage
 # MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 # MEDIA_URL='/media/'
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#Email Settings for development server
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = '4000'
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False
+
+#Email Settings for PRODUCTION server
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
+
 
 django_heroku.settings(locals(), logging=False)
