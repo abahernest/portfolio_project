@@ -94,7 +94,7 @@
         <div class="col-lg-4 ">
           <div class="div-img-bg">
             <div class="about-img">
-              <img src="{%static 'images/me.jpg'%}" class="img-responsive" alt="me">
+              <img src="{%static 'images/face.jpg'%}" class="img-responsive" alt="me">
             </div>
           </div>
         </div>
@@ -123,54 +123,16 @@
       </div>
         <div class="services-carousel owl-theme">
 
+          {%for item in skills%}
           <div class="services-block">
 
             <!-- <i class="ion-ios-browsers-outline"></i> -->
-            <span>Cloud Development</span>
-            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+            <span>{{item.title}}</span>
+            <p class="separator">{{item.description}}</p>
 
           </div>
-
-          <div class="services-block">
-
-            <!-- <i class="ion-ios-lightbulb-outline"></i> -->
-            <span>Software Development</span>
-            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-
-          </div>
-
-          <div class="services-block">
-
-            <!-- <i class="ion-ios-color-wand-outline"></i> -->
-            <span>Database Development</span>
-            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-
-          </div>
-
-          <div class="services-block">
-
-            <!-- <i class="ion-social-android-outline"></i> -->
-            <span>Data Analytics</span>
-            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-
-          </div>
-
-          <div class="services-block">
-
-            <!-- <i class="ion-ios-analytics-outline"></i> -->
-            <span>D.S.A</span>
-            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-
-          </div>
-
-          <div class="services-block">
-
-            <!-- <i class="ion-ios-camera-outline"></i> -->
-            <span>Version Control</span>
-            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
-
-          </div>
-
+          {%endfor%}
+          
         </div>
 
     </div>
@@ -368,6 +330,7 @@
       <div class="socials-media text-center">
 
         <ul class="list-unstyled">
+          <h5>My Socials</h5>
           <li><a href="https://linkedin.com/in/abahernest" target=" "><i class="ion-social-linkedin"></i></a></li>
           <li><a href="https://github.com/abahernest" target=" "><i class="ion-social-github"></i></a></li>
           <li><a href="https://twitter.com/ErnestAbah" target=" "><i class="ion-social-twitter"></i></a></li>
@@ -377,11 +340,10 @@
 
       </div>
 
-      <p>&copy; Copyrights Folio. All rights reserved.</p>
-
-      <div class="credits">
+    
+      <!-- <div class="credits">
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      </div> -->
 
     </div>
   </div>
