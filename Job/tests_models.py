@@ -159,3 +159,55 @@ class CertificatesModelTestCase (TestCase):
         cert=Certificates.objects.values()
         self.assertEqual (len(cert),self.NUMBER_OF_OBJECTS)
 
+
+class VolunteerModelTestCase (TestCase):
+    def setUp (self):
+        self.now=date.today()
+        self.NUMBER_OF_OBJECTS=2 
+        for count in range(self.NUMBER_OF_OBJECTS):
+            Volunteer.objects.create(organization=f"company{count+1}",position=f"role{count+1}",start_date=self.now,end_date=self.now)
+
+    def test_image_field_labels (self):
+        volunteer=Volunteer.objects.get(id=1)
+        field_name = volunteer._meta.get_field('image').verbose_name
+        self.assertEqual(field_name,"image")
+    
+    def test_organization_field_labels (self):
+        volunteer=Volunteer.objects.get(id=1)
+        field_name = volunteer._meta.get_field('organization').verbose_name
+        self.assertEqual(field_name,"organization")
+
+    def test_position_labels (self):
+        volunteer=Volunteer.objects.get(id=1)
+        field_name = volunteer._meta.get_field('position').verbose_name
+        self.assertEqual(field_name,"position")
+
+    def test_start_date_field_labels (self):
+        volunteer=Volunteer.objects.get(id=1)
+        field_name = volunteer._meta.get_field('start_date').verbose_name
+        self.assertEqual(field_name,"start date")
+
+    def test_end_date_field_labels (self):
+        volunteer=Volunteer.objects.get(id=1)
+        field_name = volunteer._meta.get_field('end_date').verbose_name
+        self.assertEqual(field_name,"end date")
+
+    def test_achievement1_field_labels (self):
+        volunteer=Volunteer.objects.get(id=1)
+        field_name = volunteer._meta.get_field('achievement1').verbose_name
+        self.assertEqual(field_name,"achievement1")
+    
+    def test_achievement2_field_labels (self):
+        volunteer=Volunteer.objects.get(id=1)
+        field_name = volunteer._meta.get_field('achievement2').verbose_name
+        self.assertEqual(field_name,"achievement2")
+    
+    def test_object_name_is_position_and_organization (self):
+        #Tests if the object name is equal to the title of the project
+        volunteer=Volunteer.objects.get(id=1)
+        self.assertEqual (f"{volunteer.position} at {volunteer.organization}",str(volunteer))
+
+    def test_total_number_of_objects (self):
+        #Test if the total number of project objects created is NUMBER_OF_OBJECT
+        volunteer=Volunteer.objects.values()
+        self.assertEqual (len(volunteer),self.NUMBER_OF_OBJECTS)

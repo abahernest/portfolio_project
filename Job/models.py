@@ -32,13 +32,13 @@ class Volunteer (models.Model):
     image= OptimizedImageField(optimized_image_output_size=(584,396),optimized_image_resize_method='cover', upload_to="image/",blank=True)
     organization=models.CharField(max_length=300)
     position= models.CharField(max_length=300)
-    achievement1=models.TextField()
-    achievement2=models.TextField()
+    achievement1=models.TextField(blank=True)
+    achievement2=models.TextField(blank=True)
     start_date=models.DateField()
     end_date=models.DateField(null=True)
 
     def __str__ (self):
-        return self.organization
+        return f"{self.position} at {self.organization}"
 
 class Certificates (models.Model):
     image= OptimizedImageField(optimized_image_output_size=(584,396),optimized_image_resize_method='cover', upload_to="image/",blank=True)
