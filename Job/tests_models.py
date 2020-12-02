@@ -211,3 +211,28 @@ class VolunteerModelTestCase (TestCase):
         #Test if the total number of project objects created is NUMBER_OF_OBJECT
         volunteer=Volunteer.objects.values()
         self.assertEqual (len(volunteer),self.NUMBER_OF_OBJECTS)
+
+
+class SkillModelTestCase (TestCase):
+    def setUp (self):
+        self.NUMBER_OF_OBJECTS = 2
+        for count in range(self.NUMBER_OF_OBJECTS):
+            Skill.objects.create(title=f"title{count+1}",description=f"descr {count+1}")
+        
+    def test_title_label (self):
+        skill =Skill.objects.get(id=1)
+        field_name =skill._meta.get_field('title').verbose_name
+        self.assertEqual (field_name,"title")
+
+    def test_description_lable (self):
+        skill= Skill.objects.get(id=1)
+        field_name =skill._meta.get_field('description').verbose_name
+        self.assertEqual (field_name, "description")
+
+    def test_object_name_is_title (self):
+        skill = Skill.objects.get(id=1)
+        self.assertEqual (skill.title,str(skill))
+
+    def test_total_number_of_objects (self):
+        skills=Skill.objects.values()
+        self.assertEqual (len(skills),self.NUMBER_OF_OBJECTS)
