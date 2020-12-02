@@ -10,7 +10,7 @@ def home (request):
     projects=Project.objects.order_by("-date")
     volunteer=Volunteer.objects.order_by("-end_date")
     certificate=Certificates.objects.order_by("-date_received")
-    resume=Resume.objects.order_by('-id')[0]
+    resume=Resume.objects.order_by('-id')
     skills = Skill.objects.all()
     context={'jobs':jobs,'projects':projects,'volunteer':volunteer,'certificates':certificate,'resume':resume,'skills':skills}
 

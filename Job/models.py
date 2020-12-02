@@ -10,11 +10,11 @@ class Job(models.Model):
     start_date=models.DateField()
     end_date= models.DateField(null=True)
     achievement1=models.TextField()
-    achievement2=models.TextField()
-    achievement3=models.TextField()
+    achievement2=models.TextField(blank=True)
+    achievement3=models.TextField(blank=True)
 
     def __str__ (self):
-        return self.job_title
+        return f"{self.job_title} at {self.company}"
 
 
 class Project(models.Model):

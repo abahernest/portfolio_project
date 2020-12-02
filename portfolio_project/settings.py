@@ -29,9 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','abahernest-portfolio.herokuapp.com']
 
-SECURE_SSL_REDIRECT=True
-SESSION_COOKIE_SECURE=True
-CSRF_COOKIE_SECURE=True
+# SECURE_SSL_REDIRECT=True
+# SESSION_COOKIE_SECURE=True
+# CSRF_COOKIE_SECURE=True
 
  
 
