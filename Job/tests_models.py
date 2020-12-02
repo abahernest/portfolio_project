@@ -46,7 +46,7 @@ class ProjectModelTestCase (TestCase):
         project=Project.objects.get(id=1)
         self.assertEqual (project.title,str(project))
 
-    def test_number_of_all_objects (self):
+    def test_total_number_of_objects (self):
         #Test if the total number of project objects created is NUMBER_OF_OBJECTS
         projects=Project.objects.values()
         self.assertEqual (len(projects),self.NUMBER_OF_OBJECTS)
@@ -98,16 +98,64 @@ class JobModelTestCase (TestCase):
         job=Job.objects.get(id=1)
         field_name = job._meta.get_field('achievement3').verbose_name
         self.assertEqual(field_name,"achievement3")
-
+    
     def test_object_name_is_job_title_and_company (self):
         #Tests if the object name is equal to the title of the project
         job=Job.objects.get(id=1)
         self.assertEqual (f"{job.job_title} at {job.company}",str(job))
 
-    def test_number_of_all_objects (self):
+    def test_total_number_of_objects (self):
         #Test if the total number of project objects created is NUMBER_OF_OBJECT
         job=Job.objects.values()
         self.assertEqual (len(job),self.NUMBER_OF_OBJECTS)
 
 
+
+
+class CertificatesModelTestCase (TestCase):
+    def setUp (self):
+        self.now=date.today()
+        self.NUMBER_OF_OBJECTS=2 
+        for count in range(self.NUMBER_OF_OBJECTS):
+            Certificates.objects.create(organization=f"organization{count+1}",name=f"certificate{count+1}",description=f"description{count+1}",link=f"https://link{count+1}.com",date_received=self.now)
+
+    def test_image_field_labels (self):
+        cert=Certificates.objects.get(id=1)
+        field_name = cert._meta.get_field('image').verbose_name
+        self.assertEqual(field_name,"image")
+    
+    def test_organization_field_labels (self):
+        cert=Certificates.objects.get(id=1)
+        field_name = cert._meta.get_field('organization').verbose_name
+        self.assertEqual(field_name,"organization")
+
+    def test_certificate_name_field_labels (self):
+        cert=Certificates.objects.get(id=1)
+        field_name = cert._meta.get_field('name').verbose_name
+        self.assertEqual(field_name,"name")
+
+    def test_date_received_field_labels (self):
+        cert=Certificates.objects.get(id=1)
+        field_name = cert._meta.get_field('date_received').verbose_name
+        self.assertEqual(field_name,"date received")
+
+    def test_description_field_labels (self):
+        cert=Certificates.objects.get(id=1)
+        field_name = cert._meta.get_field('description').verbose_name
+        self.assertEqual(field_name,"description")
+
+    def test_link_field_labels (self):
+        cert=Certificates.objects.get(id=1)
+        field_name = cert._meta.get_field('link').verbose_name
+        self.assertEqual(field_name,"link")
+    
+    def test_object_name_is_organization_and_certificate_name (self):
+        #Tests if the object name is equal to the title of the project
+        cert=Certificates.objects.get(id=1)
+        self.assertEqual (f"{cert.organization},{cert.name}" , str(cert))
+
+    def test_total_number_of_objects (self):
+        #Test if the total number of project objects created is NUMBER_OF_OBJECT
+        cert=Certificates.objects.values()
+        self.assertEqual (len(cert),self.NUMBER_OF_OBJECTS)
 

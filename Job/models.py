@@ -49,7 +49,7 @@ class Certificates (models.Model):
     date_received=models.DateField()
         
     def __str__ (self):
-        return self.name
+        return f"{self.organization},{self.name}"
     
 class Resume (models.Model):
     resume=models.FileField()
