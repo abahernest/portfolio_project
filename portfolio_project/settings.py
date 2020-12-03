@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Job.apps.JobConfig',
-    'Blog.apps.BlogConfig',
     'storages',
     'image_optimizer',
 ]
