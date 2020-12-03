@@ -54,7 +54,9 @@
           <!-- <li><a href="#about" class="smoothScroll">Skills</a></li> -->
           <li><a href="https://linkedin.com/in/abahernest" target=" " class="ion-social-linkedin">Linkedin</a></li>
           <li><a href="https://github.com/abahernest" target=" " class="ion-social-github">Github</a></li>
+          {%if resume%}
           <li><a href="{{ resume.resume.url }}" target=" " >Download Resume</a></li>
+          {%endif%}
           <li><a href="#contact" class="smoothScroll">Contact</a></li>
         </ul>
 
@@ -202,7 +204,7 @@
             {%endfor%}
 
            
-            {% for item in volunteer.all %}
+            {% for item in volunteers.all %}
             <div class="card col-lg-4 col-md-6 portfolio-thumbnail all volunteering" style="width: 100%;">
               <img src="{{item.image.url}}" class="card-img-top" alt="img">
               <div class="card-body" style="text-align: left;">

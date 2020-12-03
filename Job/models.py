@@ -54,9 +54,6 @@ class Certificates (models.Model):
 class Resume (models.Model):
     resume=models.FileField()
 
-    def __str__(self):
-        return self.resume
-
 class Skill (models.Model):
     title= models.CharField(max_length=500)
     description=models.TextField()

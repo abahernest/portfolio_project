@@ -8,12 +8,17 @@ from decouple import config
 def home (request):
     jobs=Job.objects.order_by("-end_date")
     projects=Project.objects.order_by("-date")
-    volunteer=Volunteer.objects.order_by("-end_date")
+    volunteers=Volunteer.objects.order_by("-end_date")
     certificate=Certificates.objects.order_by("-date_received")
     resume=Resume.objects.order_by('-id')
     skills = Skill.objects.all()
-    context={'jobs':jobs,'projects':projects,'volunteer':volunteer,'certificates':certificate,'resume':resume,'skills':skills}
-
+    context={'jobs':jobs,'projects':projects,'volunteers':volunteers,'certificates':certificate,'skills':skills}
+    
+    #fetch url to the most recently uploaded resume 
+    if len(resume)>0:
+        context.update({'resume':resume[0]})
+    
+    #if post request, call contactViews function
     if request.method =="POST":
         contact(request)
         success_message="Thanks!! I've Received Your Message"
@@ -27,7 +32,7 @@ def home (request):
 def contact (request):
         sender_name = request.POST['name']
         sender_email = request.POST['email']
-        mail_subject = "New Message from {}".format(sender_name)
-        message = request.POST['message']
+        mail_subject = f"New Message from {sender_name}"
+        message = f"Sender Email: {sender_email}\nMessage: {request.POST['message']}"
       
         send_mail(mail_subject, message, sender_email, ['abahernesto@gmail.com'])
